@@ -7,7 +7,7 @@ Im broke, need to test aero, this might or might not work.
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Miata Downforce Measurement</title>
+    Miata Downforce Measurement
 </head>
 <body>
     <h1>Miata Downforce Measurement</h1>
