@@ -7,26 +7,26 @@ Im broke, need to test aero, this might or might not work.
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    Miata Downforce Measurement
 </head>
 <body>
     <h1>Miata Downforce Measurement</h1>
     <p>This project provides a Python program to measure downforce in a Miata using load cells and a MegaSquirt ECU. Below are the instructions to set up and run the program.</p>
     
-    <h2>Requirements</h2>
+<h2>Requirements</h2>
     <ul>
         <li>Load cells</li>
         <li>Microcontroller (e.g., Arduino)</li>
         <li><code>pyserial</code> library for Python</li>
     </ul>
 
-    <h2>Setup</h2>
+<h2>Setup</h2>
     <p>First, ensure you have the required libraries installed:</p>
     <pre><code>pip install pyserial</code></pre>
     
-    <h2>Python Program</h2>
+ <h2>Python Program</h2>
     <p>Create a Python script with the following code:</p>
     <pre><code>import serial
+
 import time
 
 # Replace 'COM3' with the correct port for your microcontroller
