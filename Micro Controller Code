@@ -1,0 +1,23 @@
+#include <HX711.h>
+
+HX711 scale;
+
+void setup() {
+  Serial.begin(9600);
+  scale.begin(DOUT, CLK);  // Connect your HX711 DOUT and CLK pins
+  scale.set_scale(2280.f); // Adjust to match your calibration
+  scale.tare();            // Reset the scale to 0
+}
+
+void loop() {
+  if (Serial.available() > 0) {
+    char command = Serial.read();
+    if (command == 'R') {
+      float load1 = scale.get_units(10);  // Read average of 10 readings
+      float load2 = scale.get_units(10);  // Repeat for additional load cells if necessary
+      Serial.print(load1);
+      Serial.print(",");
+      Serial.println(load2);
+    }
+  }
+}
