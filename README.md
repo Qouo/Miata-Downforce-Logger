@@ -71,7 +71,7 @@ except KeyboardInterrupt:
     ser.close()
 </code></pre>
 
-    <h2>Explanation</h2>
+<h2>Explanation</h2>
     <p>The script performs the following steps:</p>
     <ol>
         <li><strong>Serial Communication:</strong> Opens a serial connection to the microcontroller. Make sure the port (<code>COM3</code>) and baud rate (<code>9600</code>) match your microcontroller's configuration.</li>
@@ -80,9 +80,9 @@ except KeyboardInterrupt:
         <li><strong>Sending Data to MegaSquirt:</strong> The <code>send_to_megasquirt</code> function formats the data and sends it to the MegaSquirt ECU.</li>
     </ol>
 
-    <h2>Microcontroller Code</h2>
-    <p>Ensure your microcontroller (e.g., Arduino) is set up to read from the load cells and send the data via serial. Here’s a basic example in Arduino code:</p>
-    <pre><code>#include <HX711.h>
+<h2>Microcontroller Code</h2>
+<p>Ensure your microcontroller (e.g., Arduino) is set up to read from the load cells and send the data via serial. Here’s a basic example in Arduino code:</p>
+<pre><code>#include <HX711.h>
 
 HX711 scale;
 
@@ -107,6 +107,6 @@ void loop() {
 }
 </code></pre>
 
-    <p>This is a basic example to get you started. You will need to adjust the program based on your specific hardware setup, including the number of load cells and their placement on your Miata. Additionally, you may need to calibrate the load cells to get accurate measurements.</p>
+<p>This is a basic example to get you started. You will need to adjust the program based on your specific hardware setup, including the number of load cells and their placement on your Miata. Additionally, you may need to calibrate the load cells to get accurate measurements.</p>
 </body>
 </html>
