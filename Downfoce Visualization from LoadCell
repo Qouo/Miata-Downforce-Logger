@@ -1,0 +1,50 @@
+import serial
+import time
+import json
+
+# Replace 'COM3' with the correct port for your microcontroller
+ser = serial.Serial('/dev/ttyUSB0', 9600, timeout=1)
+time.sleep(2)  # Wait for the serial connection to initialize
+
+def read_load_cells():
+    ser.write(b'R')  # Command to read load cells (this will depend on your microcontroller's code)
+    line = ser.readline().decode('utf-8').strip()
+    if line:
+        try:
+            values = [float(x) for x in line.split(',')]
+            return values
+        except ValueError:
+            print("Invalid data received: ", line)
+            return None
+    return None
+
+def calculate_downforce(load_cell_data):
+    if load_cell_data:
+        # Assume load_cell_data is a list of force measurements from multiple load cells
+        # The exact calculation will depend on your setup and calibration
+        total_downforce = sum(load_cell_data)
+        return total_downforce
+    return 0
+
+def main():
+    try:
+        while True:
+            load_cell_data = read_load_cells()
+            downforce = calculate_downforce(load_cell_data)
+            print(f"Downforce: {downforce} lbs")
+
+            # Prepare data for PiDash
+            data = {
+                "downforce": downforce
+            }
+            with open("/home/pi/pidash/data.json", "w") as f:
+                json.dump(data, f)
+
+            time.sleep(1)  # Adjust the frequency of measurements as needed
+
+    except KeyboardInterrupt:
+        print("Measurement stopped by user")
+        ser.close()
+
+if __name__ == "__main__":
+    main()
