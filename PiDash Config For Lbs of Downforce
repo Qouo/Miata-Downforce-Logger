@@ -1,0 +1,14 @@
+{
+  "widgets": [
+    {
+      "type": "gauge",
+      "title": "Downforce (lbs)",
+      "source": "custom",
+      "path": "/home/pi/pidash/data.json",
+      "key": "downforce",
+      "min": 0,
+      "max": 1000,
+      "unit": "lbs"
+    }
+  ]
+}
